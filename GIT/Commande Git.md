@@ -28,3 +28,9 @@ git pull <alias> <brancheName>
 ```
 `alias` : correspond au nom donné dans le `git remote add`
 `brancheName` : correspond au nom de la branche que l'on veut recupérer sur le depot distant
+
+# Problème de merge
+Dans le cas ou lors du pull, une erreur surviens (fusion), alors je lance la commande 
+```bash 
+git pull --no-rebase <alias> <branche>
+```
