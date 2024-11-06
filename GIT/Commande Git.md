@@ -1,3 +1,12 @@
+```table-of-contents
+```
+---
+
+##TODO
+
+-> ajout remote distant
+
+
 # Liaison depot distant
 
 ```bash
@@ -33,4 +42,21 @@ git pull <alias> <brancheName>
 Dans le cas ou lors du pull, une erreur surviens (fusion), alors je lance la commande 
 ```bash 
 git pull --no-rebase <alias> <branche>
+```
+
+# Suppression de branche
+
+### Suppression repo local
+
+```bash
+git branch -d <nameBranch>
+
+//ou si branche non fusionné
+git branch -D <nameBranche>
+```
+
+### Suppression branche distante
+
+```bash
+git push origin --delete <namebranche>
 ```
