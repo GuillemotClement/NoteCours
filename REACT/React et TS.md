@@ -1,3 +1,91 @@
+## Typage avec React
+
+### main.tsx
+-> ajouter le code du main.tsx avec le typage HTMLElement
+
+### Interface
+Les interfaces permettent d'indiquer les données attendus dans un tableau, objet.
+
+## Typer le code
+
+Dans notre code, on as une petite app permettant d'afficher un élément. Il est constitué d'un composant parent, un composant responsable de l'affichage et un composant permettant d'afficher l'élément en particulier.
+
+Ici, on utilise le `useState` pour passer la valeur de la donnée.
+
+On viens ainsi typer dans les deux composants enfant :
+
+```js
+//App.tsx
+function App() {
+	// state dans App
+	// foodlist a besoin du setter (on va lui envoyer via une props)
+	// fooddisplay a besoin de la valeur du state pour l'afficher (on va lui filer via une props)
+	const [currentFood, setCurrentFood] = useState('muffin');
+	return (
+		<div>
+			<FoodList handleChangeFood={setCurrentFood} />
+			<FoodDisplay prefFood={currentFood} />
+		</div>
+	);
+}
+```
+
+Dans le composant `FoodList`, on viens typer la référence à la fonction permettant de modifier la valeur du state.
+
+Pour utiliser le bon type, on passeras la souris sur la fonction du `useState`, et on peut voir le type à utiliser.
+
+On viens donc créer une interface permettant de typer la fonction utiliser.
+
+```js
+//FoodList.tsx
+const pastries = ['muffin', 'chocolat', 'macaron', 'cupcake', 'pop-corn'];
+
+//déclaration de l'interface pour typer la fonction
+interface PropsFoodList {
+	handleChangeFood: React.Dispatch<React.SetStateAction<string>>;
+}
+
+//on viens typer la fonction passer en props
+function FoodList({ handleChangeFood }: PropsFoodList) {
+	return (
+		<ul>
+			{pastries.map((food) => (
+				<li>
+					<button
+						type="button"
+						onClick={() => {
+							handleChangeFood(food);
+						}
+				}
+            >{food}
+					</button>
+				</li>
+			))}
+		</ul>
+	);
+}
+
+export default FoodList;
+```
+
+On vient également typer dans le second composant enfant la valeur qui est passer en props
+
+```js
+//Foodisplay.tsx
+
+//interface pour type la valeur de la props
+interface FoodDisplayProps {
+	prefFood: string;
+}
+
+//on vient utiliser l'interface pour typer la prop passer au composant
+function FoodDisplay({ prefFood }: FoodDisplayProps) {
+	return <p>My favorite food is {prefFood}</p>;
+}
+
+export default FoodDisplay;
+```
+
 app.tsx
 ```js
 import HelloMessage from './HelloMessage';
