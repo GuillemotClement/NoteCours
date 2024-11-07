@@ -17,3 +17,14 @@ docker compse up
 ```bash 
 docker compose down
 ```
+
+## Supprimer les build en cas de problème
+```bash 
+docker-compose down --rmi all --volumes --remove-orphans
+```
+
+Relancer ensuite le build -> ici problème avec un ajout de tailwind
+
+```bash 
+docker-compose up --build
+```
