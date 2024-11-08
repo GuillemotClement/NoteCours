@@ -1,5 +1,6 @@
 ```table-of-contents
 ```
+
 ## Prérequis
 
 - PHP8.2 ou plus
