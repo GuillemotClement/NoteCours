@@ -1,11 +1,17 @@
 ```table-of-contents
 ```
 ---
+# Voir toutes les branche d'un repo
 
-##TODO
+```git 
+git branch -a
+```
 
--> ajout remote distant
+Pour ensuite changer de branche pour la branche distante
 
+```git
+git checkout -b <nom_de_la_branche_locale> origin/<nom_de_la_branche_distant>
+```
 
 # Liaison depot distant
 
